@@ -1,5 +1,5 @@
 # Use an official Ruby image as the base
-FROM ruby:3.1-alpine
+FROM ruby:2.7.6
 
 # Set working directory
 WORKDIR /usr/src/app
