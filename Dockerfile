@@ -1,20 +1,20 @@
 # Use an official Ruby image as the base
-FROM ruby:3.1-alpine
+FROM ruby:latest  # Replace "latest" with a specific version if needed
 
-# Set working directory inside the container
+# Set working directory
 WORKDIR /usr/src/app
 
-# Copy the project code from the host machine
+# Copy Gemfile and Gemfile.lock
+COPY Gemfile* ./
+
+# Install gems
+RUN bundle install
+
+# Copy your application code
 COPY . .
 
-# Install bundle (gem dependency manager)
-RUN gem install bundler
-
-# Install project dependencies using the Gemfile
-RUN bundle install --production
-
-# Expose the default Rails port (3000)
+# Expose the Rails server port
 EXPOSE 3000
 
-# Define the command to run when the container starts (rails server)
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# Start the Rails server in development mode (change for production)
+CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3000"]
