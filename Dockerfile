@@ -1,14 +1,16 @@
-# Use official Ruby image with specific version
-FROM ruby:2.7.6-alpine
+FROM ruby:2.7.6-bullseye
 
-# Set working directory
-WORKDIR /app
+RUN apt-get update -qq && apt-get install -y build-essential apt-utils libpq-dev nodejs
 
-# Copy Gemfile and Gemfile.lock
-COPY Gemfile Gemfile.lock ./
+WORKDIR /docker/app
 
-# Install gems and your application code
-RUN bundle install && cp -r . .
+RUN gem install bundler
+
+COPY Gemfile* ./
+
+RUN bundle install
+
+ADD . /docker/app
 
 # Expose port for Rails server
 EXPOSE 3000
