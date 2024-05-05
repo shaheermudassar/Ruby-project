@@ -1,20 +1,17 @@
-# Use an official Ruby image as the base
-FROM ruby:2.7.6
+# Use official Ruby image with specific version
+FROM ruby:2.7.6-alpine
 
 # Set working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy Gemfile and Gemfile.lock
-COPY Gemfile* ./
+COPY Gemfile Gemfile.lock ./
 
-# Install gems
-RUN bundle install
+# Install gems and your application code
+RUN bundle install && cp -r . .
 
-# Copy your application code
-COPY . .
-
-# Expose the Rails server port
+# Expose port for Rails server
 EXPOSE 3000
 
-# Start the Rails server in development mode (change for production)
-CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+# Run Rails server
+CMD ["rails", "server", "-b", "0.0.0.0"]
