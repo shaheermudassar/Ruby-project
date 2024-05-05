@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.6'
+ruby '3.0'
 gem 'active_storage_validations'
 gem 'bootstrap', '~> 5.2', '>= 5.2.1'
 gem 'cloudinary'
