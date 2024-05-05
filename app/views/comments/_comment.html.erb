@@ -1,0 +1,20 @@
+<p>
+  <strong><%= comment.user.first_name %>:</strong>
+  <%= comment.comment_body %>
+  <% @comment = comment %>
+  <span id="comment_like_count"><%= comment.likes.count if comment.likes.count != 0%></span> <%= render 'reports/comment_report', comment: @comment %>
+  <% if user_signed_in? && like = like = content_liked(comment.id, 'Comment')  %>
+    <span id="comment_unlike_btn"> <%= link_to ('<i class="fa fa-thumbs-up fa-lg"> </i>').html_safe, like_path(like), :method => :delete, remote: :true %></span>
+  <% else %>
+    <span id="comment_like_btn"> <%= link_to ('<i class="fa fa-thumbs-up fa-lg lke_btn"> </i>').html_safe, comment_likes_path(comment_id: comment.id), method: "post", remote: :true %></span>
+  <% end %>
+  <h6>Replies</h6>
+  <%= render @comment.replies %>
+
+  <%= render 'replies/form', comment: @comment %>
+  <br>
+  <% if comment.photo.attached? %>
+    <%= image_tag comment.photo, style: "width:100px; height:100px"   %>
+  <% end %>
+</p>
+

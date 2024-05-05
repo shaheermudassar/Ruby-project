@@ -1,0 +1,5 @@
+<% if user_signed_in? && current_user.reports.find_by(reportable_id: comment.id, reportable_type: 'Comment') %>
+  <span id="report_button"> Reported</span>
+<% else %>
+  <span id="report_button"><%= link_to "Report comment", comment_reports_path(comment_id: comment.id), method: "post", remote: :true %></span>
+<% end %>

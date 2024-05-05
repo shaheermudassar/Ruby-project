@@ -1,0 +1,5 @@
+<% if user_signed_in? && like = content_liked(@article.id, 'Article') %>
+  <span id="unlike_button"><%= link_to  ('<i class="fa fa-thumbs-up fa-2x"> </i>').html_safe, like_path(like), :method => :delete, remote: :true %></span>
+<% else %>
+  <span id="like_button"><%= link_to ('<i class="fa fa-thumbs-up fa-2x lke_btn"> </i>').html_safe, article_likes_path(article_id: @article.id), method: "post", class: "like_btn", remote: :true %></span>
+<% end %>

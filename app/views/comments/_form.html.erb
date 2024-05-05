@@ -1,0 +1,13 @@
+<%= form_with(model: [ @article, @article.comments.build ]) do |form| %>
+
+  <div class="field mb-3">
+    <%= form.text_field :comment_body, class: "form-control form-control-sm", placeholder: "Leave a comment" %>
+  </div>
+
+   <div class="field mb-3">
+    <%= form.file_field :photo, class: "form-control form-control-sm" %>
+  </div>
+  <p>
+    <%= form.submit 'Comment', class: "btn btn-primary btn-sm" %>
+  </p>
+<% end %>

@@ -1,0 +1,11 @@
+development:
+  cloud_name: 'db6xfyxz1'
+  api_key: '145393392773931'
+  api_secret: 'uBtM5Z0QRw_WyV4nmtmMazM-27A'
+  secure: true
+
+production:
+  cloud_name: 'db6xfyxz1'
+  api_key: '145393392773931'
+  api_secret: 'uBtM5Z0QRw_WyV4nmtmMazM-27A'
+  secure: true

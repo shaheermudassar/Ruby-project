@@ -1,0 +1,140 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import "font-awesome";
+.lke_btn {
+  color:black;
+}
+
+.description-text {
+
+}
+.article_image {
+  width: 80%;
+  height: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.fa-star {
+  color: gold;
+}
+#report_button {
+  float: right;
+}
+
+
+body {
+  background-image: url('https://img.freepik.com/free-vector/dark-hexagonal-background-with-gradient-color_79603-1409.jpg?w=1380&t=st=1714553968~exp=1714554568~hmac=8720acab3b798fbe0099cb84456d614f906773f21693a043098c32df1892b05d');
+  background-color: #ce9a67; /* Light gray background color */
+  font-family: Arial, sans-serif; /* Specify your preferred font */
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.container {
+ 
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #c2baba; /* White background color for the form container */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a slight elevation effect */
+}
+
+#error_explanation {
+  background-color: #f8d7da; /* Light red background color for error messages */
+  color: #721c24;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+}
+
+#error_explanation h2 {
+  margin-top: 0;
+}
+
+#error_explanation ul {
+  margin-bottom: 0;
+}
+
+#error_explanation li {
+  list-style-type: none;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control-lg {
+  font-size: 1.25rem;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tinymce {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 12px 20px;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+//NavBar
+/* Navbar brand */
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+/* Navbar toggler */
+.navbar-toggler {
+  border: none; /* Remove default border */
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+  font-weight: bold;
+  font-family: Arial, sans-serif; /* Specify your preferred font family */
+}
+
+.navbar-nav .nav-link.active {
+  font-weight: bold; /* Active link font weight */
+}
+
+/* Navbar collapse */
+.navbar-collapse {
+  justify-content: center; /* Align items to the center */
+}
+.nav-item{
+  text-align: center;
+}
+/* Container */
+.containerNav {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+// show

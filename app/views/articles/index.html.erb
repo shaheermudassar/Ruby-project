@@ -1,0 +1,13 @@
+<%= link_to 'New article', new_article_path, class: "btn btn-secondary float-end"%>
+
+<h1>Listing articles</h1>
+<table>
+#we catch the user_article data from db and show it in frontend page here
+  <% @user_articles.each do |article| %>
+    <tr class="">
+      <td style="overflow: hidden; text-overflow: ellipsis; max-width: 70%;"><%= article.title  %></td>
+      <td><h6 class="text-capitalize mx-4"><%= article.user.first_name %> || <%= article.created_at.to_date %> || Member Only <i class="fa fa-star" aria-hidden="true"></i></h6></td>
+      <td><%= link_to 'Show', article_path(article), class: "btn btn-primary mx-3 my-3" %></td>
+    </tr>
+  <% end %>
+</table>

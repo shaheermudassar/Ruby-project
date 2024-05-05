@@ -1,0 +1,12 @@
+
+<%= form_with(model: [ @article, @article.suggestions.build ]) do |form| %>
+
+  <div class="field mb-3">
+    <%= form.text_field :suggest, class: "form-control", placeholder: "Suggestion", style: "height: 100px; width: 50%" %>
+  </div>
+
+  <p>
+    <%= form.submit 'Submit Suggestion', class: "btn btn-primary btn-sm" %>
+  </p>
+
+<% end %>

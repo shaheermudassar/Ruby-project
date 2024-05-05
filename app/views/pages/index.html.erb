@@ -1,0 +1,37 @@
+<%= link_to 'New article', new_article_path, class: "btn btn-secondary float-end"%>
+
+<h1>Listing articles</h1>
+<table>
+  <% @articles.publish.each do |article| %>
+    <tr >
+      <td><h6 class="text-capitalize"><%= article.user.first_name %> || <%= article.created_at.to_date %> || Member Only <i class="fa fa-star" aria-hidden="true"></i></h6></td> <br>
+      <td><%= article.title %></td>
+      <td></td>
+      <td><%= link_to 'Show', article_path(article), class: "btn btn-primary" %></td>
+    </tr>
+  <% end %>
+</table>
+<% if moderator_user %>
+  <h1>Listing Unpublish articles</h1>
+  <table>
+    <% @articles.un_publish.each do |unpublish_article| %>
+      <tr >
+        <td><h6 class="text-capitalize"><%= unpublish_article.user.first_name %> || <%= unpublish_article.created_at.to_date %> || Member Only <i class="fa fa-star" aria-hidden="true"></i></h6></td> <br>
+        <td><%= unpublish_article.title %></td>
+        <td></td>
+        <td><%= link_to 'Show', article_path(unpublish_article), class: "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </table>
+  <h1>Listing Reported articles</h1>
+  <table>
+    <% report_articles(@articles).each do |reported_articles| %>
+      <tr >
+        <td><h6 class="text-capitalize"><%= reported_articles.user.first_name %> || <%= reported_articles.created_at.to_date %> || Member Only <i class="fa fa-star" aria-hidden="true"></i></h6></td> <br>
+        <td><%= reported_articles.title %></td>
+        <td></td>
+        <td><%= link_to 'Show', article_path(reported_articles), class: "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

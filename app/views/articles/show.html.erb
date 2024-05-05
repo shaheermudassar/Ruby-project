@@ -1,0 +1,43 @@
+<% if moderator_user %>
+  <% if @article.publish? %>
+    <%= link_to 'Unpublish', edit_page_path(@article, status: :un_publish), class: 'btn btn-warning btn-sm mr-2' %>
+  <% elsif @article.un_publish? %>
+    <%= link_to 'Publish', edit_page_path(@article, status: :publish), class: 'btn btn-warning btn-sm mr-2' %>
+  <% end %>
+  <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure you want to delete this Article?' }, class: 'btn btn-danger btn-sm' %>
+<% elsif signed_in? && user_article(@article) %>
+<%= render @article.suggestions %>
+<% end %>
+
+
+
+<div class="container mt-4">
+<div class="row justify-content-center">
+<div class="col-md-8">
+<div class="card">
+<div class="card-body">
+<h2 class="card-title text-center"><strong>"<%= @article.title %>"</strong></h2>
+<% if @article.image.attached? %>
+        <%= image_tag @article.image, class: "card-img-top article_image mt-3 mb-3 mx-auto d-block" %>
+        <% end %>
+        <p class="card-text text-center"><%= @article.description %></p>
+        <div class="d-flex justify-content-between align-items-center">
+        <div class="article_like_form">
+          <%= render 'likes/form' %> 
+          <span id="article_count"><%= @article.likes.count if @article.likes.count != 0 %></span> Likes  
+          </div>
+          <%= render 'reports/form' %>
+            </div>
+            <h6 class="mt-4">Comments</h6>
+            <%= render @article.comments %>
+            <%= render 'comments/form' %>
+            <%= render 'suggestions/form' %>
+            <%= link_to 'Back', :root, class: "btn btn-primary btn-sm mt-3 d-block w-100" %>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+            <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure you want to delete this Article?' }, class: 'btn btn-danger btn-sm mr-2' %>
+      <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-info btn-sm mr-2' %>

@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field mb-3">
+      <%= f.text_field :first_name, autofocus: true, placeholder: "First Name", class: "form-control form-control-lg", required: true %>
+    </div>
+
+    <div class="field mb-3">
+      <%= f.text_field :last_name, autofocus: true, placeholder: "Last Name", class: "form-control form-control-lg", required: true %>
+    </div>
+
+    <div class="field mb-3">
+      <%= f.number_field :phone, autofocus: true, placeholder: "Please Enter Your Phone", class: "form-control form-control-lg", required: true %>
+    </div>
+
+    <div class="field mb-3">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Please Enter Your Email", class: "form-control form-control-lg", required: true %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="field mb-3">
+      <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Please Enter New Password", class: "form-control form-control-lg" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="field mb-3">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm New Password", class: "form-control form-control-lg" %>
+    </div>
+
+    <div class="field mb-3">
+      <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current Password", class: "form-control form-control-lg" %>
+    </div>
+
+    <div class="actions mb-3">
+      <%= f.submit "Update", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <h3>Cancel my account</h3>
+
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %></p>
+
+  <%= link_to "Back", :back, class: "btn btn-primary" %>
+
+</div>

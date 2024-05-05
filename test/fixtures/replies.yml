@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyText
+  replyable: one
+  replyable_type: Replyable
+  user: one
+
+two:
+  body: MyText
+  replyable: two
+  replyable_type: Replyable
+  user: two

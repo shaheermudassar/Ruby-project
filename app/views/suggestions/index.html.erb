@@ -1,0 +1,9 @@
+<h1>Your Suggestions on other Articles</h1>
+<table>
+  <% @suggestions.each do |suggestion| %>
+    <tr class="">
+      <td style="overflow: hidden; text-overflow: ellipsis; max-width: 70%;"><%= suggestion.suggest  %></td>
+      <td><h6 class="text-capitalize mx-4"><%= suggestion.user.first_name %> </h6></td>
+    </tr>
+  <% end %>
+</table>
